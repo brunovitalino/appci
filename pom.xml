@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bv.demo</groupId>
+  <artifactId>appci</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <profiles>
+    <profile>
+        <id>tomcat-localhost</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <tomcat-server>localhost</tomcat-server>
+            <tomcat-url>http://localhost:8080/manager/text</tomcat-url>
+        </properties>
+    </profile>
+  </profiles>
+  
+  <build>
+  
+    <plugins>
+    
+      <plugin>      
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+		<configuration>
+			<path>/BrunoCI</path>
+		    <server>${tomcat-server}</server>
+		    <url>${tomcat-url}</url>
+		</configuration>        
+      </plugin>
+      
+    </plugins>
+    
+  </build>
+  
+</project>
